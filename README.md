@@ -1,5 +1,7 @@
 <p align="center">
-  <img src="https://github.com/lbordonal/lbordonal/blob/main/.images/42_Cursus_-_Philosophers.png">
+<h1>
+	Minishell
+</h1>
 </p>
 
 <p align="center">
