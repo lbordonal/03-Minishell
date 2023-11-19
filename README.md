@@ -1,7 +1,5 @@
 <p align="center">
-<h1>
-	Minishell
-</h1>
+  <img src="https://github.com/lbordonal/lbordonal/blob/main/.titles/Minishell.png">
 </p>
 
 <p align="center">
