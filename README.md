@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-This repository contains code developed at 42 Porto for Minishell Project, from ... to ...
+This repository contains code developed at 42 Porto for Minishell Project with <a href="https://github.com/GoPepperPY">Gonçalo Pimenta</a>, from January/2024 to ...
 </p>
 
 <img src="https://github.com/lbordonal/lbordonal/blob/main/.42_badges/minishelln.png" align="right" />
