@@ -18,12 +18,14 @@ NAME = minishell
 
 SRCS = srcs/minishell.c
 
-OBJS = $(SRCS:%.c=%.o)
+AUX = aux/ft_putchar_fd.c aux/ft_putstr_fd.c
+
+OBJS = $(SRCS:%.c=%.o) $(AUX:%.c=%.o)
 
 all: $(NAME)
 
 
-$(NAME): $(OBJS) $(LIBFT)
+$(NAME): $(OBJS)
 	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 clean:

@@ -12,6 +12,11 @@
 
 #include "../includes/minishell.h"
 
+void print_prompt(void)
+{
+    ft_putstr_fd("Minishell$ ", 1);
+}
+
 int	main(int ac, char **av)
 {
 	(void)av;
@@ -19,5 +24,9 @@ int	main(int ac, char **av)
 	{
 		printf("Error → Entry should be: ./minishell ");
 		printf("and shouldn't contain any arguments.\n");
+		return (0);
 	}
+	print_prompt();
+	while(1)
+		pause();
 }

@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef MINISHELL_H
+# define MINISHELL_H
 
 /* Includes: */
 # include <stdlib.h>
@@ -34,5 +34,12 @@ typedef struct s_minishell
 }	t_minishell;
 
 /* Functions: */
+
+/*AUX*/
+void	ft_putstr_fd(char *s, int fd);
+void	ft_putchar_fd(char c, int fd);
+
+/*SOURCES*/
+void print_prompt(void);
 
 #endif
