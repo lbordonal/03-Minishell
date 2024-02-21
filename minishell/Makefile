@@ -6,7 +6,7 @@
 #    By: lbordona <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/22 16:47:41 by lbordona          #+#    #+#              #
-#    Updated: 2024/02/19 23:33:26 by lbordona         ###   ########.fr        #
+#    Updated: 2024/02/21 11:38:13 by lbordona         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,22 +16,28 @@ RM = rm -rf
 
 NAME = minishell
 
-SRCS = srcs/minishell.c
+LIBFT = ./libft/libft.a
 
-AUX = aux/ft_putchar_fd.c aux/ft_putstr_fd.c
+SRCS = srcs/minishell.c srcs/echo.c
+
+#AUX = aux/ft_putchar_fd.c aux/ft_putstr_fd.c aux/ft_calloc.c
 
 OBJS = $(SRCS:%.c=%.o) $(AUX:%.c=%.o)
 
 all: $(NAME)
 
+$(LIBFT):
+	@$(MAKE) -C ./libft
 
-$(NAME): $(OBJS)
-	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+$(NAME): $(OBJS) $(LIBFT)
+	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
 
 clean:
+	@$(MAKE) clean -C ./libft
 	@$(RM) $(OBJS)
 
 fclean: clean
+	@$(MAKE) fclean -C ./libft
 	$(RM) $(NAME)
 
 re: fclean all

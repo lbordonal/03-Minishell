@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 22:51:39 by lbordona          #+#    #+#             */
-/*   Updated: 2024/02/19 23:33:15 by lbordona         ###   ########.fr       */
+/*   Updated: 2024/02/21 11:48:35 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 # include <stdint.h>
 # include <fcntl.h>
 # include <limits.h>
+# include "../libft/libft.h"
 /* Defines: */
 
 /* Structures: */
@@ -34,12 +35,13 @@ typedef struct s_minishell
 }	t_minishell;
 
 /* Functions: */
-
-/*AUX*/
+/* aux: */
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putchar_fd(char c, int fd);
+void	*ft_calloc(size_t nmemb, size_t size);
 
-/*SOURCES*/
-void print_prompt(void);
+/* srcs: */
+void	print_prompt(void);
+void	echo_cmd(char *str);
 
 #endif
