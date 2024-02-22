@@ -18,7 +18,7 @@ NAME = minishell
 
 LIBFT = ./libft/libft.a
 
-PRINTF = ./ft_printf/ft_printf.a
+PRINTF = ./printf/ft_printf.a
 
 SRCS = srcs/minishell.c srcs/echo.c
 
@@ -32,19 +32,19 @@ $(LIBFT):
 	@$(MAKE) -C ./libft
 
 $(PRINTF):
-	@$(MAKE) -C ./ft_printf
+	@$(MAKE) -C ./printf
 
 $(NAME): $(OBJS) $(LIBFT) $(PRINTF)
 	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(PRINTF) -o $(NAME)
 
 clean:
 	@$(MAKE) clean -C ./libft
-	@$(MAKE) clean -C ./ft_printf
+	@$(MAKE) clean -C ./printf
 	@$(RM) $(OBJS)
 
 fclean: clean
 	@$(MAKE) fclean -C ./libft
-	@$(MAKE) fclean -C ./ft_printf
+	@$(MAKE) fclean -C ./printf
 	$(RM) $(NAME)
 
 re: fclean all
