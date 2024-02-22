@@ -1,14 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/03 10:34:15 by lbordona          #+#    #+#             */
-/*   Updated: 2023/08/23 18:33:42 by lbordona         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
@@ -67,19 +56,7 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n);
 int		ft_atoi(const char *nptr);
 int		ft_lstsize(t_list *lst);
 int		ft_printf(const char *input, ...);
-int		check_argument(va_list args, const char type);
-int		ft_puthex_count(unsigned int n, const char type);
-int		ft_hexlen(unsigned int n);
-int		ft_putnbr_count(int n);
-int		ft_put_unsignedint_count(unsigned int n);
-int		ft_numlen(unsigned int n);
-int		ft_putchar_count(int c);
-int		ft_putstr_count(char *str);
-int		ft_putptr_count(unsigned long long ptr);
-int		ft_ptrlen(uintptr_t ptr);
-int		ft_putpercent(void);
 int		ft_isstringdigit(char *string);
-int		ft_checkstack(t_stack *stack);
 int		ft_str_is_digit(char *str);
 
 long	ft_atol(const char *str);
@@ -103,9 +80,6 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_delete(void *data);
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
-void	ft_puthex(unsigned int n, const char type);
-void	ft_putptr(uintptr_t ptr);
-void	ft_printlist(t_list *list);
 void	ft_printstack_a(t_stack *stack);
 void	ft_printstack_b(t_stack *stack);
 void	ft_swap(int *a, int *b);
@@ -119,10 +93,6 @@ char	*ft_strtrim(char const *s1, char const *set);
 char	**ft_split(char const *s, char c);
 char	*ft_itoa(int n);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
-char	*ft_uitoa(unsigned int n);
 char	*get_next_line(int fd);
-char	*read_and_save(int fd, char *save);
-char	*get_line(char *save);
-char	*ft_save(char *save);
 
 #endif
