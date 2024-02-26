@@ -26,7 +26,6 @@
 # include <fcntl.h>
 # include <limits.h>
 # include "../libft/libft.h"
-# include "../printf/library.h"
 /* Defines: */
 
 /* Structures: */
@@ -40,9 +39,11 @@ typedef struct s_minishell
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putchar_fd(char c, int fd);
 void	*ft_calloc(size_t nmemb, size_t size);
+void	check_input(char *string);
+void	print_prompt(void);
 
 /* srcs: */
-void	print_prompt(void);
 void	echo_cmd(char *str);
+void	door(char *string);
 
 #endif

@@ -12,39 +12,25 @@
 
 #include "../includes/minishell.h"
 
-void print_prompt(void)
+void	door(char *string)
 {
-    ft_putstr_fd("Minishell$ ", 1);
+    if (ft_strcmp(string, "echo") == 0) {
+        echo_cmd();
+    }
 }
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
-    (void)av;
-    if (ac > 1)
+	(void)av;
+	if (ac > 1)
 	{
-        printf("Error → Entry should be: ./minishell ");
-        printf("and shouldn't contain any arguments.\n");
-        return (0);
-    }
+		printf("Error → Entry should be: ./minishell ");
+		printf("and shouldn't contain any arguments.\n");
+		return (0);
+	}
 	while (1)
 	{
-        char *input;
-        ssize_t bytes_read;
-
-        print_prompt();
-        input = ft_calloc(1024, sizeof(char));
-        bytes_read = read(STDIN_FILENO, input, sizeof(input));
-        if (bytes_read <= 0)
-		{
-        	break;
-        }
-        //else
-        //{
-            printf("%ld", bytes_read);
-            //echo_cmd(input);
-        //}
-        input[bytes_read] = '\0';
-
+		print_prompt();
 	}
-    return 0;
+	return 0;
 }

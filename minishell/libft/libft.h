@@ -58,6 +58,7 @@ int		ft_lstsize(t_list *lst);
 int		ft_printf(const char *input, ...);
 int		ft_isstringdigit(char *string);
 int		ft_str_is_digit(char *str);
+int		ft_strcmp(const char *str1, const char *str2);
 
 long	ft_atol(const char *str);
 
