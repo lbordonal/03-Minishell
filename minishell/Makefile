@@ -6,7 +6,7 @@
 #    By: lbordona <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/22 16:47:41 by lbordona          #+#    #+#              #
-#    Updated: 2024/02/21 11:38:13 by lbordona         ###   ########.fr        #
+#    Updated: 2024/02/28 23:48:32 by lbordona         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,9 +18,8 @@ NAME = minishell
 
 LIBFT = ./libft/libft.a
 
-SRCS = srcs/minishell.c srcs/echo.c srcs/utils.c
-
-#AUX = aux/ft_putchar_fd.c aux/ft_putstr_fd.c aux/ft_calloc.c
+SRCS = srcs/minishell.c srcs/utils.c \
+	cmds/echo.c cmds/cd.c cmds/pwd.c
 
 OBJS = $(SRCS:%.c=%.o)
 
@@ -29,7 +28,7 @@ all: $(NAME)
 $(LIBFT):
 	@$(MAKE) -C ./libft
 
-$(NAME): $(OBJS) $(LIBFT) 
+$(NAME): $(OBJS) $(LIBFT)
 	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
 
 clean:

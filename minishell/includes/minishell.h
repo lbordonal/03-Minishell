@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 22:51:39 by lbordona          #+#    #+#             */
-/*   Updated: 2024/02/28 20:57:19 by lbordona         ###   ########.fr       */
+/*   Updated: 2024/02/28 23:42:33 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,16 @@
 # include <stdint.h>
 # include <fcntl.h>
 # include <limits.h>
+# include <sys/types.h> //opendir,readdir,closedir
+# include <dirent.h> //opendir,readdir,closedir
 # include "../libft/libft.h"
 /* Defines: */
 
 /* Structures: */
 typedef struct s_minishell
 {
-	char *args;
+	char	*args;
+	char	*path;
 }	t_minishell;
 
 /* Functions: */
@@ -46,5 +49,7 @@ void	print_prompt(void);
 void	return_string(t_minishell *cmd);
 void	door(char *string, t_minishell *cmd);
 void	echo_cmd(t_minishell *cmd);
+void	cd_cmd(t_minishell *cmd);
+void	pwd_cmd(t_minishell *cmd);
 
 #endif

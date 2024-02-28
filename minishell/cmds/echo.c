@@ -1,40 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.c                                        :+:      :+:    :+:   */
+/*   echo.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/19 19:45:51 by lbordona          #+#    #+#             */
-/*   Updated: 2024/02/28 23:42:29 by lbordona         ###   ########.fr       */
+/*   Created: 2024/02/21 11:04:34 by lbordona          #+#    #+#             */
+/*   Updated: 2024/02/28 23:45:15 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
 
-void	door(char *input, t_minishell *cmd)
+void	return_string(t_minishell *cmd)
 {
-	if (ft_strcmp(input, "echo") == 0)
-		echo_cmd(cmd);
-	if(ft_strcmp(input, "pwd") == 0)
-		pwd_cmd(cmd);
-	if(ft_strcmp(input, "cd") == 0)
-		cd_cmd(cmd);
+	int counter;
+
+	counter = 1;
+	while(cmd->args[counter] != '\'' && cmd->args[counter] != '"' && cmd->args[counter])
+	{
+		write(1, &cmd->args[counter], 1);
+		counter++;
+	}
+	printf("\n");
 }
 
-int	main(int ac, char **av)
+void echo_cmd(t_minishell *cmd)
 {
-	(void)av;
-	if (ac > 1)
+	if (cmd->args[0] == '"' || cmd->args[0] == '\'')
+		return_string(cmd);
+	else
 	{
-		printf("Error → Entry should be: ./minishell ");
-		printf("and shouldn't contain any arguments.\n");
-		return (0);
+		printf("%s", cmd->args);
 	}
-	while (1)
-	{
-		ft_putstr_fd("Minishell$ ", 1);
-		print_prompt();
-	}
-	return 0;
 }
