@@ -31,7 +31,7 @@
 /* Structures: */
 typedef struct s_minishell
 {
-	//estrutura para o minisheel a ser criada
+	char *args;
 }	t_minishell;
 
 /* Functions: */
@@ -39,11 +39,12 @@ typedef struct s_minishell
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putchar_fd(char c, int fd);
 void	*ft_calloc(size_t nmemb, size_t size);
-void	check_input(char *string);
+void check_input(t_minishell *cmd);
 void	print_prompt(void);
 
 /* srcs: */
-void	echo_cmd(char *str);
-void	door(char *string);
+void	return_string(t_minishell *cmd);
+void	door(char *string, t_minishell *cmd);
+void	echo_cmd(t_minishell *cmd);
 
 #endif

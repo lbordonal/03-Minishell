@@ -12,10 +12,10 @@
 
 #include "../includes/minishell.h"
 
-void	door(char *string)
+void	door(char *string, t_minishell *cmd)
 {
     if (ft_strcmp(string, "echo") == 0) {
-        echo_cmd();
+        echo_cmd(cmd);
     }
 }
 
@@ -30,6 +30,7 @@ int	main(int ac, char **av)
 	}
 	while (1)
 	{
+		ft_putstr_fd("Minishell$ ", 1);
 		print_prompt();
 	}
 	return 0;

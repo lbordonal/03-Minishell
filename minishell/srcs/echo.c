@@ -12,7 +12,24 @@
 
 #include "../includes/minishell.h"
 
-void	echo_cmd(char *str)
+void	return_string(t_minishell *cmd)
 {
-	printf("%s\n", str);
+	int counter;
+
+	counter = 1;
+	while(cmd->args[counter] != '\'' && cmd->args[counter] != '"' && cmd->args[counter])
+	{
+		write(1, &cmd->args[counter], 1);
+		counter++;
+	}
+	printf("\n");
 }
+
+void echo_cmd(t_minishell *cmd)
+{
+    if (cmd->args[0] == '"' || cmd->args[0] == '\'')
+        return_string(cmd);
+    else
+        printf("%s", cmd->args);
+}
+
