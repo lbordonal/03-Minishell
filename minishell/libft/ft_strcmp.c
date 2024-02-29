@@ -5,19 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/28 23:06:17 by lbordona          #+#    #+#             */
-/*   Updated: 2024/02/28 23:06:18 by lbordona         ###   ########.fr       */
+/*   Created: 2024/02/29 00:57:46 by lbordona          #+#    #+#             */
+/*   Updated: 2024/02/29 00:58:42 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
-int ft_strcmp(const char *str1, const char *str2)
+int	ft_strcmp(const char *str1, const char *str2)
 {
-    while (*str1 && (*str1 == *str2))
+	while (*str1 && (*str1 == *str2))
 	{
-        str1++;
-        str2++;
-    }
-    return *(unsigned char *)str1 - *(unsigned char *)str2;
+		str1++;
+		str2++;
+	}
+	return (*(unsigned char *)str1 - *(unsigned char *)str2);
 }

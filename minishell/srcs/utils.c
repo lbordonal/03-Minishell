@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 22:50:06 by lbordona          #+#    #+#             */
-/*   Updated: 2024/02/29 00:26:26 by lbordona         ###   ########.fr       */
+/*   Updated: 2024/02/29 01:04:49 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,10 @@
 
 void	print_prompt(void)
 {
-
-	t_minishell	cmd;
 	ssize_t		bytes_read;
+	t_minishell	cmd;
 
-	cmd.path = getcwd(0,0);
+	cmd.path = getcwd(0, 0);
 	cmd.args = ft_calloc(1024, sizeof(char *));
 	if (!cmd.args)
 		exit(0);
@@ -30,22 +29,22 @@ void	print_prompt(void)
 	cmd.args[bytes_read] = '\0';
 }
 
-void check_input(t_minishell *cmd)
+void	check_input(t_minishell *cmd)
 {
-	int counter;
-	int i;
-	char *input;
+	int		counter;
+	int		i;
+	char	*input;
 
 	counter = 0;
-	while(cmd->args[counter] != ' ' && cmd->args[counter] != '\0')
+	while (cmd->args[counter] != ' ' && cmd->args[counter] != '\0')
 		counter++;
 	if (cmd->args[counter] == '\0')
 		counter--;
 	input = ft_calloc(counter + 1, sizeof(char));
-	if(input == NULL)
+	if (input == NULL)
 		exit(1);
 	i = 0;
-	while(i < counter)
+	while (i < counter)
 	{
 		input[i] = cmd->args[i];
 		i++;
