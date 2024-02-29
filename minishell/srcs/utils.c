@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 22:50:06 by lbordona          #+#    #+#             */
-/*   Updated: 2024/02/28 23:17:21 by lbordona         ###   ########.fr       */
+/*   Updated: 2024/02/29 00:26:26 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ void check_input(t_minishell *cmd)
 	counter = 0;
 	while(cmd->args[counter] != ' ' && cmd->args[counter] != '\0')
 		counter++;
+	if (cmd->args[counter] == '\0')
+		counter--;
 	input = ft_calloc(counter + 1, sizeof(char));
 	if(input == NULL)
 		exit(1);
@@ -48,7 +50,7 @@ void check_input(t_minishell *cmd)
 		input[i] = cmd->args[i];
 		i++;
 	}
-	input[counter] = '\0';
+	input[i] = '\0';
 	cmd->args = cmd->args + counter + 1;
 	door(input, cmd);
 	free(input);

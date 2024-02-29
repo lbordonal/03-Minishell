@@ -6,7 +6,7 @@
 #    By: lbordona <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/22 16:47:41 by lbordona          #+#    #+#              #
-#    Updated: 2024/02/28 23:48:32 by lbordona         ###   ########.fr        #
+#    Updated: 2024/02/28 23:57:19 by lbordona         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,8 @@ NAME = minishell
 LIBFT = ./libft/libft.a
 
 SRCS = srcs/minishell.c srcs/utils.c \
-	cmds/echo.c cmds/cd.c cmds/pwd.c
+	cmds/echo.c cmds/cd.c cmds/pwd.c \
+	aux/epur_str.c
 
 OBJS = $(SRCS:%.c=%.o)
 

@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 22:42:55 by lbordona          #+#    #+#             */
-/*   Updated: 2024/02/28 23:45:14 by lbordona         ###   ########.fr       */
+/*   Updated: 2024/02/29 00:10:28 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ the current working directory */
 
 void pwd_cmd(t_minishell *cmd)
 {
-	free(cmd->path);
 	cmd->path = getcwd(0,0);
 	printf("%s\n", cmd->path);
 }

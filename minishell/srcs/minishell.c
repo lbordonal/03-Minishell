@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 19:45:51 by lbordona          #+#    #+#             */
-/*   Updated: 2024/02/28 23:42:29 by lbordona         ###   ########.fr       */
+/*   Updated: 2024/02/29 00:24:17 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ void	door(char *input, t_minishell *cmd)
 {
 	if (ft_strcmp(input, "echo") == 0)
 		echo_cmd(cmd);
-	if(ft_strcmp(input, "pwd") == 0)
+	else if(ft_strcmp(input, "pwd") == 0)
 		pwd_cmd(cmd);
-	if(ft_strcmp(input, "cd") == 0)
+	else if(ft_strcmp(input, "cd") == 0)
 		cd_cmd(cmd);
 }
 

@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 22:51:39 by lbordona          #+#    #+#             */
-/*   Updated: 2024/02/28 23:42:33 by lbordona         ###   ########.fr       */
+/*   Updated: 2024/02/29 00:07:37 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	ft_putchar_fd(char c, int fd);
 void	*ft_calloc(size_t nmemb, size_t size);
 void	check_input(t_minishell *cmd);
 void	print_prompt(void);
-
+void	epur_str(char *str);
 /* srcs: */
 void	return_string(t_minishell *cmd);
 void	door(char *string, t_minishell *cmd);

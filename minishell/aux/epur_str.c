@@ -1,35 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   echo.c                                             :+:      :+:    :+:   */
+/*   epur_str.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/21 11:04:34 by lbordona          #+#    #+#             */
-/*   Updated: 2024/02/29 00:08:00 by lbordona         ###   ########.fr       */
+/*   Created: 2024/02/28 23:56:51 by lbordona          #+#    #+#             */
+/*   Updated: 2024/02/28 23:57:43 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
 
-void	return_string(t_minishell *cmd)
+void	epur_str(char *str)
 {
-	int counter;
+	int	i;
+	int	flag;
 
-	counter = 1;
-	while(cmd->args[counter] != '\'' && cmd->args[counter] != '"' && cmd->args[counter])
+	i = 0;
+	while (str[i] == ' ' || str[i] == '\t')
+		i++;
+	while (str[i] != '\0')
 	{
-		write(1, &cmd->args[counter], 1);
-		counter++;
+		if (str[i] == ' ' || str[i] == '\t')
+			flag = 1;
+		if (!(str[i] == ' ' || str[i] == '\t'))
+		{
+			if (flag == 1)
+				write(1, " ", 1);
+			flag = 0;
+			write(1, &str[i], 1);
+		}
+		i++;
 	}
-	printf("\n");
-}
-
-void echo_cmd(t_minishell *cmd)
-{
-	if (cmd->args[0] == '"' || cmd->args[0] == '\'')
-		return_string(cmd);
-		//meter condição para verificar se tem mais " para priorizar o que ta dentro do "..."
-	else
-		epur_str(cmd->args);
 }
