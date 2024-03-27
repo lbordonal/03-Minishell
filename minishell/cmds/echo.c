@@ -33,4 +33,5 @@ void	echo_cmd(t_minishell *cmd)
 		//meter condição para verificar se tem mais " para priorizar o que ta dentro do "..."
 	else
 		epur_str(cmd->args);
+	printf("sda");
 }
