@@ -28,6 +28,8 @@
 # include <sys/types.h> //opendir,readdir,closedir
 # include <dirent.h> //opendir,readdir,closedir
 # include "../libft/libft.h"
+# include <readline/readline.h>
+# include <readline/history.h>
 /* Defines: */
 
 /* Structures: */
@@ -51,5 +53,6 @@ void	door(char *string, t_minishell *cmd);
 void	echo_cmd(t_minishell *cmd);
 void	cd_cmd(t_minishell *cmd);
 void	pwd_cmd(t_minishell *cmd);
+void    history(t_minishell *cmd);
 
 #endif
