@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lbordona <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: lbordona <lbordona@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/22 16:47:41 by lbordona          #+#    #+#              #
-#    Updated: 2024/02/28 23:57:19 by lbordona         ###   ########.fr        #
+#    Updated: 2024/03/28 17:01:55 by lbordona         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,5 +64,8 @@ fclean: clean
 	echo " "
 
 re: fclean all
+	echo " "
+	echo "$(PURPLE)...ah shit, here we go again...$(RESET)"
+	echo " "
 
 .SILENT:

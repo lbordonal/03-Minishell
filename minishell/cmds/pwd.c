@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pwd.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: lbordona <lbordona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 22:42:55 by lbordona          #+#    #+#             */
-/*   Updated: 2024/02/29 00:59:31 by lbordona         ###   ########.fr       */
+/*   Updated: 2024/03/28 16:51:22 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 pointer to a string containing the pathname of
 the current working directory */
 
-void	pwd_cmd(t_minishell *cmd)
+void	pwd_cmd(t_minishell *ms)
 {
-	free(cmd->path);
-	cmd->path = getcwd(0, 0);
-	printf("%s\n", cmd->path);
+	free(ms->path);
+	ms->path = getcwd(0, 0);
+	printf("%s\n", ms->path);
 }

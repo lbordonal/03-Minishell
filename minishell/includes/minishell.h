@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: lbordona <lbordona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 22:51:39 by lbordona          #+#    #+#             */
-/*   Updated: 2024/02/29 00:07:37 by lbordona         ###   ########.fr       */
+/*   Updated: 2024/03/28 17:00:48 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 # include <sys/types.h> //opendir,readdir,closedir
 # include <dirent.h> //opendir,readdir,closedir
 # include "../libft/libft.h"
+
 /* Defines: */
 
 /* Structures: */
@@ -35,6 +36,7 @@ typedef struct s_minishell
 {
 	char	*args;
 	char	*path;
+	t_list	*env;
 }	t_minishell;
 
 /* Functions: */
@@ -45,6 +47,7 @@ void	*ft_calloc(size_t nmemb, size_t size);
 void	check_input(t_minishell *cmd);
 void	print_prompt(void);
 void	epur_str(char *str);
+
 /* srcs: */
 void	return_string(t_minishell *cmd);
 void	door(char *string, t_minishell *cmd);

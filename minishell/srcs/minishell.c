@@ -3,23 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: lbordona <lbordona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 19:45:51 by lbordona          #+#    #+#             */
-/*   Updated: 2024/02/29 01:02:22 by lbordona         ###   ########.fr       */
+/*   Updated: 2024/03/28 17:01:04 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
 
-void	door(char *input, t_minishell *cmd)
+void	door(char *input, t_minishell *ms)
 {
 	if (ft_strcmp(input, "echo") == 0)
-		echo_cmd(cmd);
+		echo_cmd(ms);
 	else if (ft_strcmp(input, "pwd") == 0)
-		pwd_cmd(cmd);
+		pwd_cmd(ms);
 	else if (ft_strcmp(input, "cd") == 0)
-		cd_cmd(cmd);
+		cd_cmd(ms);
 }
 
 int	main(int ac, char **av)
