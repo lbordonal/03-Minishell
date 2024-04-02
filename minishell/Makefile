@@ -21,7 +21,7 @@ CYAN 	= \033[1;36m
 WHITE 	= \033[1;37m
 
 CC = cc -g
-CFLAGS = -Wall -Wextra -Werror -pthread -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -pthread -fsanitize=address -lreadline
 RM = rm -rf
 
 NAME = minishell

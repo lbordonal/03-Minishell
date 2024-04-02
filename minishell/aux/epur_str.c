@@ -33,4 +33,5 @@ void	epur_str(char *str)
 		}
 		i++;
 	}
+	printf("\n");
 }

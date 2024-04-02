@@ -18,7 +18,7 @@ the current working directory */
 
 void	pwd_cmd(t_minishell *cmd)
 {
-	free(cmd->path);
+//	free(cmd->path);
 	cmd->path = getcwd(0, 0);
 	printf("%s\n", cmd->path);
 }
