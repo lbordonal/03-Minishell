@@ -12,9 +12,9 @@
 
 #include "../includes/minishell.h"
 
-void	door(char *input, t_minishell *cmd)
+void	door(char *input, t_minishell *cmd, char *temp)
 {
-	add_history(cmd->args);
+	add_history(temp);
 	if (ft_strcmp(input, "echo") == 0)
 		echo_cmd(cmd);
 	else if (ft_strcmp(input, "pwd") == 0)
