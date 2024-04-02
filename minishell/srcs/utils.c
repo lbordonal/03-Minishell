@@ -17,7 +17,7 @@ void	print_prompt(void)
 	t_minishell	cmd;
 
 	cmd.path = getcwd(0, 0);
-	cmd.args = readline("Minishell-> ");
+	cmd.args = readline("Minishell->");
 	if (ft_strlen(cmd.args) <= 0)
 		exit(1);
 	else
@@ -44,7 +44,7 @@ void	check_input(t_minishell *cmd)
 	}
 	input[i] = '\0';
 	temp = cmd->args;
-	cmd->args = cmd->args + counter;
+	cmd->args = cmd->args + counter + 1;
 	door(input, cmd, temp);
 	free(input);
 }
