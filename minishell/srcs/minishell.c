@@ -34,7 +34,6 @@ int	main(int ac, char **av)
 	}
 	while (1)
 	{
-		ft_putstr_fd("Minishell$ ", 1);
 		print_prompt();
 	}
 	return (0);

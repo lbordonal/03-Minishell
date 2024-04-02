@@ -14,19 +14,17 @@
 
 void	print_prompt(void)
 {
-	ssize_t		bytes_read;
 	t_minishell	cmd;
 
 	cmd.path = getcwd(0, 0);
 	cmd.args = ft_calloc(1024, sizeof(char *));
 	if (!cmd.args)
 		exit(0);
-	bytes_read = read(STDIN_FILENO, cmd.args, 1024);
-	if (bytes_read <= 0)
+	cmd.args = readline("Minishell->");
+	if (ft_strlen(cmd.args) <= 0)
 		exit(1);
 	else
 		check_input(&cmd);
-	cmd.args[bytes_read] = '\0';
 }
 
 void	check_input(t_minishell *cmd)
@@ -50,7 +48,7 @@ void	check_input(t_minishell *cmd)
 		i++;
 	}
 	input[i] = '\0';
-	cmd->args = cmd->args + counter + 1;
+	cmd->args = cmd->args + counter;
 	door(input, cmd);
 	free(input);
 }
