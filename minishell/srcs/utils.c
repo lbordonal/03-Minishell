@@ -12,16 +12,15 @@
 
 #include "../includes/minishell.h"
 
-void	print_prompt(void)
+void	print_prompt(t_minishell *cmd)
 {
-	t_minishell	cmd;
 
-	cmd.path = getcwd(0, 0);
-	cmd.args = readline("Minishell->");
-	if (ft_strlen(cmd.args) <= 0)
+	cmd->path = getcwd(0, 0);
+	cmd->args = readline("Minishell->");
+	if (ft_strlen(cmd->args) <= 0)
 		exit(1);
 	else
-		check_input(&cmd);
+		check_input(cmd);
 }
 
 void	check_input(t_minishell *cmd)
@@ -47,4 +46,16 @@ void	check_input(t_minishell *cmd)
 	cmd->args = cmd->args + counter + 1;
 	door(input, cmd, temp);
 	free(input);
+}
+
+void	print_list_env(t_list *list)
+{
+	t_list *temporary;
+
+	temporary = list;
+	while (temporary != NULL)
+	{
+		printf("%s\n", ((t_env *)(temporary->content))->info);
+		temporary = temporary->next;
+	}
 }

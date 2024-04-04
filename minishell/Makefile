@@ -30,7 +30,7 @@ LIBFT = ./libft/libft.a
 
 SRCS = srcs/minishell.c srcs/utils.c \
 	cmds/echo.c cmds/cd.c cmds/pwd.c \
-	aux/epur_str.c
+	aux/epur_str.c cmds/env.c cmds/export.c
 
 OBJS = $(SRCS:%.c=%.o)
 

@@ -21,20 +21,28 @@ void	door(char *input, t_minishell *cmd, char *temp)
 		pwd_cmd(cmd);
 	else if (ft_strcmp(input, "cd") == 0)
 		cd_cmd(cmd);
+	else if (ft_strcmp(input, "env") == 0)
+		print_list_env(cmd->env);
 }
 
-int	main(int ac, char **av)
+int	main(int ac, char **av, char **sys_env)
 {
 	(void)av;
+
 	if (ac > 1)
 	{
 		printf("Error → Entry should be: ./minishell ");
 		printf("and shouldn't contain any arguments.\n");
-		return (0);
 	}
-	while (1)
+	else
 	{
-		print_prompt();
+		t_minishell cmd;
+		cmd.env = init_env(sys_env);
+		cmd.export = init_export(sys_env);
+		while (1)
+		{
+			print_prompt(&cmd);
+		}
 	}
 	return (0);
 }

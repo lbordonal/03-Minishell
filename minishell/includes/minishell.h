@@ -37,7 +37,16 @@ typedef struct s_minishell
 {
 	char	*args;
 	char	*path;
+	t_list	*env;
+	t_list	*export;
 }	t_minishell;
+
+
+typedef struct s_env
+{
+	char	*name;
+	char	*info;
+}	t_env;
 
 /* Functions: */
 /* aux: */
@@ -45,13 +54,20 @@ void	ft_putstr_fd(char *s, int fd);
 void	ft_putchar_fd(char c, int fd);
 void	*ft_calloc(size_t nmemb, size_t size);
 void	check_input(t_minishell *cmd);
-void	print_prompt(void);
+void	print_prompt(t_minishell *cmd);
 void	epur_str(char *str);
+void	print_list_env(t_list *list);
 /* srcs: */
 void	return_string(t_minishell *cmd);
 void	echo_cmd(t_minishell *cmd);
 void	cd_cmd(t_minishell *cmd);
 void	pwd_cmd(t_minishell *cmd);
 void	door(char *input, t_minishell *cmd, char *temp);
+
+char	*get_name(char *info);
+
+/* lists> */
+t_list	*init_env(char **env);
+t_env	*ft_create_data(char *info);
 
 #endif
