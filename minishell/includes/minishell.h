@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: lbordona <lbordona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 22:51:39 by lbordona          #+#    #+#             */
-/*   Updated: 2024/02/29 00:07:37 by lbordona         ###   ########.fr       */
+/*   Updated: 2024/04/04 12:08:43 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ void	return_string(t_minishell *cmd);
 void	echo_cmd(t_minishell *cmd);
 void	cd_cmd(t_minishell *cmd);
 void	pwd_cmd(t_minishell *cmd);
+void	exit_cmd(t_minishell *cmd);
 void	door(char *input, t_minishell *cmd, char *temp);
 
 char	*get_name(char *info);
@@ -69,5 +70,6 @@ char	*get_name(char *info);
 /* lists> */
 t_list	*init_env(char **env);
 t_env	*ft_create_data(char *info);
+t_list	*init_export(char **env);
 
 #endif

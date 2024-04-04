@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: lbordona <lbordona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 19:45:51 by lbordona          #+#    #+#             */
-/*   Updated: 2024/02/29 01:02:22 by lbordona         ###   ########.fr       */
+/*   Updated: 2024/04/04 12:10:04 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,9 @@ void	door(char *input, t_minishell *cmd, char *temp)
 		cd_cmd(cmd);
 	else if (ft_strcmp(input, "env") == 0)
 		print_list_env(cmd->env);
+	else if (ft_strcmp(input, "exit") == 0)
+		exit_cmd(cmd);
+	
 }
 
 int	main(int ac, char **av, char **sys_env)
