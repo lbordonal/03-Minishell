@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: goda-sil <goda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 22:50:06 by lbordona          #+#    #+#             */
-/*   Updated: 2024/02/29 01:04:49 by lbordona         ###   ########.fr       */
+/*   Updated: 2024/04/08 16:29:47 by goda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	print_prompt(t_minishell *cmd)
 {
-
 	cmd->path = getcwd(0, 0);
 	cmd->args = readline("Minishell->");
 	if (ft_strlen(cmd->args) <= 0)
@@ -29,6 +28,7 @@ void	check_input(t_minishell *cmd)
 	int		i;
 	char	*input;
 	char	*temp;
+
 	counter = 0;
 	while (cmd->args[counter] != ' ' && cmd->args[counter] != '\0')
 		counter++;
@@ -50,7 +50,7 @@ void	check_input(t_minishell *cmd)
 
 void	print_list_env(t_list *list)
 {
-	t_list *temporary;
+	t_list	*temporary;
 
 	temporary = list;
 	while (temporary != NULL)

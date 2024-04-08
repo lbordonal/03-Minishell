@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lbordona <lbordona@student.42.fr>          +#+  +:+       +#+        */
+/*   By: goda-sil <goda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 22:51:39 by lbordona          #+#    #+#             */
-/*   Updated: 2024/04/04 12:08:43 by lbordona         ###   ########.fr       */
+/*   Updated: 2024/04/08 17:32:07 by goda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ typedef struct s_minishell
 	t_list	*env;
 	t_list	*export;
 }	t_minishell;
-
 
 typedef struct s_env
 {

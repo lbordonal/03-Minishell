@@ -3,18 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   cd.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: goda-sil <goda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 22:28:07 by lbordona          #+#    #+#             */
-/*   Updated: 2024/02/29 01:07:24 by lbordona         ###   ########.fr       */
+/*   Updated: 2024/04/08 16:29:59 by goda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
-
-/* chdir -> */
-/* perror -> */
-
 
 void	cd_cmd(t_minishell *cmd)
 {

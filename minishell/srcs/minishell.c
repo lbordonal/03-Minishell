@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lbordona <lbordona@student.42.fr>          +#+  +:+       +#+        */
+/*   By: goda-sil <goda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 19:45:51 by lbordona          #+#    #+#             */
-/*   Updated: 2024/04/04 12:10:04 by lbordona         ###   ########.fr       */
+/*   Updated: 2024/04/08 18:23:40 by goda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,13 @@ void	door(char *input, t_minishell *cmd, char *temp)
 		print_list_env(cmd->env);
 	else if (ft_strcmp(input, "exit") == 0)
 		exit_cmd(cmd);
-	
 }
 
 int	main(int ac, char **av, char **sys_env)
 {
-	(void)av;
+	t_minishell	cmd;
 
+	(void)av;
 	if (ac > 1)
 	{
 		printf("Error → Entry should be: ./minishell ");
@@ -39,7 +39,6 @@ int	main(int ac, char **av, char **sys_env)
 	}
 	else
 	{
-		t_minishell cmd;
 		cmd.env = init_env(sys_env);
 		cmd.export = init_export(sys_env);
 		while (1)

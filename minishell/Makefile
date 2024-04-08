@@ -21,9 +21,9 @@ CYAN 	= \033[1;36m
 WHITE 	= \033[1;37m
 
 CC = cc -g
-CFLAGS = -Wall -Wextra -Werror -pthread -fsanitize=address -lreadline
+CFLAGS = -Wall -Wextra -Werror -pthread -fsanitize=address
 RM = rm -rf
-
+EXTRA = -lreadline
 NAME = minishell
 
 LIBFT = ./libft/libft.a
@@ -42,7 +42,7 @@ $(LIBFT):
 	@$(MAKE) -C ./libft
 
 $(NAME): $(OBJS) $(LIBFT)
-	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(EXTRA) -o $(NAME)
 	echo " "
 	echo "$(PURPLE)Quem tá triste não tá mais!$(RESET)"
 	echo " "
