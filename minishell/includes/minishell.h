@@ -6,7 +6,7 @@
 /*   By: goda-sil <goda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 22:51:39 by lbordona          #+#    #+#             */
-/*   Updated: 2024/04/09 17:25:16 by goda-sil         ###   ########.fr       */
+/*   Updated: 2024/04/09 20:02:51 by goda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ typedef struct s_minishell
 typedef struct s_tokens
 {
 	char	**args;
-}t_tokens;
+}	t_token;
 
 typedef struct s_env
 {
@@ -62,26 +62,24 @@ void	check_input(t_minishell *cmd);
 void	print_prompt(t_minishell *cmd);
 void	epur_str(char *str);
 void	print_list_env(t_list *list);
+char	**ft_split_new(char const *s, char c);
+
 /* srcs: */
 void	return_string(char *cmd);
-void	echo_cmd(t_minishell *cmd);
+void	echo_cmd(char **string);
 void	cd_cmd(t_minishell *cmd);
 void	pwd_cmd(t_minishell *cmd);
 void	exit_cmd(t_minishell *cmd);
-void	door(t_minishell *cmd, char *temp);
+void	door(t_list *token, char *temp, t_minishell *cmd);
 void	init_fun(t_minishell	*cmd, char **sys_env);
 
 char	*get_name(char *info);
 
 /* lists> */
-/* t-lists */
 t_list	*init_env(char **env);
 t_list	*init_export(char **env);
-
-/* env */
+t_list	*init_tokens(char **string);
 t_env	*ft_create_data(char *info);
-
-/* tokens */
-t_tokens *create_tokens(char *info);
+t_token	*create_tokens(char *info);
 
 #endif

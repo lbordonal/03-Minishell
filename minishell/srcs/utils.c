@@ -6,7 +6,7 @@
 /*   By: goda-sil <goda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 22:50:06 by lbordona          #+#    #+#             */
-/*   Updated: 2024/04/09 17:22:09 by goda-sil         ###   ########.fr       */
+/*   Updated: 2024/04/09 19:59:12 by goda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,11 @@ void	print_prompt(t_minishell *cmd)
 
 void	check_input(t_minishell *cmd)
 {
-	cmd->tokens = init_tokens(cmd->args_temp);
-	door(cmd, cmd->args_temp);
+	char	**temporary;
+
+	temporary = ft_split(cmd->args_temp, '|');
+	cmd->tokens = init_tokens(temporary);
+	door(cmd->tokens, cmd->args_temp, cmd);
 }
 
 void	print_list_env(t_list *list)
