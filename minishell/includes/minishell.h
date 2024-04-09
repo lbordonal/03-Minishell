@@ -6,7 +6,7 @@
 /*   By: goda-sil <goda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 22:51:39 by lbordona          #+#    #+#             */
-/*   Updated: 2024/04/08 17:32:07 by goda-sil         ###   ########.fr       */
+/*   Updated: 2024/04/09 15:45:52 by goda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@
 /* Structures: */
 typedef struct s_minishell
 {
-	char	*args;
+	char	**args;
+	char	*args_temp;
 	char	*path;
 	t_list	*env;
 	t_list	*export;
@@ -57,12 +58,12 @@ void	print_prompt(t_minishell *cmd);
 void	epur_str(char *str);
 void	print_list_env(t_list *list);
 /* srcs: */
-void	return_string(t_minishell *cmd);
+void	return_string(char *cmd);
 void	echo_cmd(t_minishell *cmd);
 void	cd_cmd(t_minishell *cmd);
 void	pwd_cmd(t_minishell *cmd);
 void	exit_cmd(t_minishell *cmd);
-void	door(char *input, t_minishell *cmd, char *temp);
+void	door(t_minishell *cmd, char *temp);
 
 char	*get_name(char *info);
 
