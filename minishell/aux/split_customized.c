@@ -6,7 +6,7 @@
 /*   By: goda-sil <goda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 19:24:53 by goda-sil          #+#    #+#             */
-/*   Updated: 2024/04/09 21:04:26 by goda-sil         ###   ########.fr       */
+/*   Updated: 2024/04/09 23:00:58 by goda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 static int	count_words(const char *str, char c)
 {
-	int	i;
-	int	trigger;
+	int		i;
+	int		trigger;
+	char	tmp;
 
 	i = 0;
 	trigger = 0;
@@ -23,8 +24,12 @@ static int	count_words(const char *str, char c)
 	{
 		if (*str == '"' || *str == '\'')
 		{
-			trigger++;
-			if (trigger == 2)
+			if (trigger == 0)
+			{
+				tmp = *str;
+				trigger++;
+			}
+			else if (*str == tmp)
 				trigger = 0;
 		}
 		if (*str != c && trigger == 0)
@@ -47,25 +52,37 @@ static char	*word_dup(const char *str, int start, int finish)
 	return (word);
 }
 
+int	trigger_value(char c, char tmp, int trigger)
+{
+	if (c == '"' || c == '\'')
+	{
+		if (trigger == 0)
+		{
+			tmp = c;
+			trigger++;
+		}
+		else if (c == tmp)
+			trigger = 0;
+	}
+	return (trigger);
+}
+
 char	**send(char **split, char const*s, char c)
 {
-	size_t	i;
-	size_t	j;
-	int		index;
-	int	trigger;
+	size_t		i;
+	size_t		j;
+	int			index;
+	int			trigger;
+	static char	tmp;
 
 	i = -1;
 	j = 0;
 	index = -1;
 	trigger = 0;
+	tmp = 0;
 	while (++i <= ft_strlen(s))
 	{
-		if (s[i] == '"' || s[i] == '\'')
-		{
-			trigger++;
-			if (trigger == 2)
-				trigger = 0;
-		}
+		trigger = trigger_value(s[i], tmp, trigger);
 		if (s[i] != c && index < 0)
 			index = i;
 		else if (((s[i] == c && trigger == 0) || \
@@ -76,12 +93,13 @@ char	**send(char **split, char const*s, char c)
 		}
 	}
 	split[j] = 0;
-	return(split);
+	return (split);
 }
 
 char	**ft_split_new(char const *s, char c)
 {
 	char	**split;
+
 	if (!s)
 		return (0);
 	split = malloc((count_words(s, c) + 1) * sizeof(char *));
