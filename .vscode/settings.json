@@ -1,8 +1,7 @@
 {
 	"editor.insertSpaces": false,
 	"files.associations": {
-		"libft.h": "c",
-		"minishell.h": "c",
-		"history.h": "c"
-	}
+		"minishell.h": "c"
+	},
+	"C_Cpp.errorSquiggles": "disabled"
 }
