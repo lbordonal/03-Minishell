@@ -1,41 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   tokens.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: goda-sil <goda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/28 22:50:06 by lbordona          #+#    #+#             */
-/*   Updated: 2024/04/09 17:22:09 by goda-sil         ###   ########.fr       */
+/*   Created: 2024/04/09 17:06:05 by goda-sil          #+#    #+#             */
+/*   Updated: 2024/04/09 17:37:44 by goda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
 
-void	print_prompt(t_minishell *cmd)
+t_list	*init_tokens(char *string)
 {
-	cmd->path = getcwd(0, 0);
-	cmd->args_temp = readline("Minishell->");
-	if (ft_strlen(cmd->args_temp) <= 0)
-		exit(1);
-	else
-		check_input(cmd);
-}
-
-void	check_input(t_minishell *cmd)
-{
-	cmd->tokens = init_tokens(cmd->args_temp);
-	door(cmd, cmd->args_temp);
-}
-
-void	print_list_env(t_list *list)
-{
+	int		counter;
+	t_list	*head;
 	t_list	*temporary;
 
-	temporary = list;
-	while (temporary != NULL)
+	counter = 0;
+	head = NULL;
+	ft_lstadd_back(&head, ft_lstnew(create_tokens(string[counter])));
+	temporary = head;
+	counter++;
+	while (string[counter] != NULL)
 	{
-		printf("%s\n", ((t_env *)(temporary->content))->info);
+		temporary->next = ft_lstnew(create_tokens(string[counter]));
 		temporary = temporary->next;
+		counter++;
 	}
+	return (head);
+}
+
+t_tokens *create_tokens(char *info)
+{
+	
 }

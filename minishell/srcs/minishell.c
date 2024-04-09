@@ -6,7 +6,7 @@
 /*   By: goda-sil <goda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 19:45:51 by lbordona          #+#    #+#             */
-/*   Updated: 2024/04/09 16:34:11 by goda-sil         ###   ########.fr       */
+/*   Updated: 2024/04/09 17:21:56 by goda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,12 @@ void	door(t_minishell *cmd, char *temp)
 		exit_cmd(cmd);
 }
 
+void	init_fun(t_minishell	*cmd, char **sys_env)
+{
+	cmd->env = init_env(sys_env);
+	cmd->export = init_export(sys_env);
+}
+
 int	main(int ac, char **av, char **sys_env)
 {
 	t_minishell	cmd;
@@ -39,10 +45,9 @@ int	main(int ac, char **av, char **sys_env)
 	}
 	else
 	{
-		cmd.env = init_env(sys_env);
-		cmd.export = init_export(sys_env);
 		while (1)
 		{
+			init_fun(&cmd, sys_env);
 			print_prompt(&cmd);
 		}
 	}

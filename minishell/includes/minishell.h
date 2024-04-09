@@ -6,7 +6,7 @@
 /*   By: goda-sil <goda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 22:51:39 by lbordona          #+#    #+#             */
-/*   Updated: 2024/04/09 15:45:52 by goda-sil         ###   ########.fr       */
+/*   Updated: 2024/04/09 17:25:16 by goda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,17 @@
 /* Structures: */
 typedef struct s_minishell
 {
-	char	**args;
 	char	*args_temp;
 	char	*path;
 	t_list	*env;
 	t_list	*export;
+	t_list	*tokens;
 }	t_minishell;
+
+typedef struct s_tokens
+{
+	char	**args;
+}t_tokens;
 
 typedef struct s_env
 {
@@ -64,12 +69,19 @@ void	cd_cmd(t_minishell *cmd);
 void	pwd_cmd(t_minishell *cmd);
 void	exit_cmd(t_minishell *cmd);
 void	door(t_minishell *cmd, char *temp);
+void	init_fun(t_minishell	*cmd, char **sys_env);
 
 char	*get_name(char *info);
 
 /* lists> */
+/* t-lists */
 t_list	*init_env(char **env);
-t_env	*ft_create_data(char *info);
 t_list	*init_export(char **env);
+
+/* env */
+t_env	*ft_create_data(char *info);
+
+/* tokens */
+t_tokens *create_tokens(char *info);
 
 #endif

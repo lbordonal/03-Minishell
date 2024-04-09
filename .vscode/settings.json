@@ -2,6 +2,7 @@
 	"editor.insertSpaces": false,
 	"files.associations": {
 		"libft.h": "c",
-		"minishell.h": "c"
+		"minishell.h": "c",
+		"history.h": "c"
 	}
 }
