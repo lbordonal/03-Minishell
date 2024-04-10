@@ -6,7 +6,7 @@
 /*   By: goda-sil <goda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 22:51:39 by lbordona          #+#    #+#             */
-/*   Updated: 2024/04/09 20:02:51 by goda-sil         ###   ########.fr       */
+/*   Updated: 2024/04/09 23:27:14 by goda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ char	**ft_split_new(char const *s, char c);
 /* srcs: */
 void	return_string(char *cmd);
 void	echo_cmd(char **string);
-void	cd_cmd(t_minishell *cmd);
+void	cd_cmd(char *string);
 void	pwd_cmd(t_minishell *cmd);
 void	exit_cmd(t_minishell *cmd);
 void	door(t_list *token, char *temp, t_minishell *cmd);
