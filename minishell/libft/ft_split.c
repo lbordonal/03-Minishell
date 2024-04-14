@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: goda-sil <goda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 15:29:24 by lbordona          #+#    #+#             */
-/*   Updated: 2023/04/21 19:13:15 by lbordona         ###   ########.fr       */
+/*   Updated: 2024/04/14 16:37:18 by goda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,19 +74,3 @@ char	**ft_split(char const *s, char c)
 	split[j] = 0;
 	return (split);
 }
-
-/* int	main(void)
-{
-	char	*str = "Lucas Henrique";
-	char	sep = 'a';
-	char	**result = ft_split(str, sep);
-	int		i;
-
-	i = 0;
-	while (result[i])
-	{
-		puts(result[i]);
-		i++;
-	}
-	return (0);
-} */

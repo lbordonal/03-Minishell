@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: goda-sil <goda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 22:51:39 by lbordona          #+#    #+#             */
-/*   Updated: 2024/04/14 12:58:12 by lbordona         ###   ########.fr       */
+/*   Updated: 2024/04/14 16:37:23 by goda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ void	print_list_env(t_list *list);
 char	**ft_split_new(char const *s, char c);
 
 /* srcs: */
-void	return_string(char *cmd);
 void	echo_cmd(char **string);
 int		verify_quote(char *str);
 char	*remove_quote(char *str);
