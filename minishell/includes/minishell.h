@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: goda-sil <goda-sil@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 22:51:39 by lbordona          #+#    #+#             */
-/*   Updated: 2024/04/14 16:37:23 by goda-sil         ###   ########.fr       */
+/*   Updated: 2024/04/15 13:40:02 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,9 @@ char	**ft_split_new(char const *s, char c);
 
 /* srcs: */
 void	echo_cmd(char **string);
-int		verify_quote(char *str);
+//int		verify_quote(char *str);
 char	*remove_quote(char *str);
+int		test_str(char *str);
 void	cd_cmd(char *string);
 void	pwd_cmd(t_minishell *cmd);
 void	exit_cmd(t_minishell *cmd);
