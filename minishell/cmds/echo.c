@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   echo.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: goda-sil <goda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 11:04:34 by lbordona          #+#    #+#             */
-/*   Updated: 2024/04/14 13:10:27 by lbordona         ###   ########.fr       */
+/*   Updated: 2024/04/14 16:36:51 by goda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,14 +58,16 @@ char	*remove_quote(char *str)
 	i = 0;
 	j = 0;
 	new_str = malloc(sizeof(char) * (ft_strlen(str) + 1));
-	while (str[i] != '\0')
+	if (!new_str)
+		return (NULL);
+	while (str[i])
 	{
-		if (str[i] == '"')
-			i++;
-		new_str[j] = str[i];
-		i++;
-		j++;
+		if (str[i] != '"') {
+            new_str[j] = str[i];
+            j++;
+        }
+        i++;
 	}
-	printf("%s", new_str);
+	new_str[j] = '\0';
 	return (new_str);
 }
