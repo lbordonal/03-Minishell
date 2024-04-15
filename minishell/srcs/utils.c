@@ -6,7 +6,7 @@
 /*   By: goda-sil <goda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 22:50:06 by lbordona          #+#    #+#             */
-/*   Updated: 2024/04/09 23:30:29 by goda-sil         ###   ########.fr       */
+/*   Updated: 2024/04/15 08:14:19 by goda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,15 @@ void	print_prompt(t_minishell *cmd)
 {
 	cmd->path = getcwd(0, 0);
 	cmd->args_temp = readline("Minishell->");
-	if (ft_strlen(cmd->args_temp) <= 0)
-		exit(1);
-	else
-		check_input(cmd);
+	while (cmd->args_temp && cmd->args_temp[0] == '\0') {
+        free(cmd->args_temp);
+        cmd->args_temp = readline("Minishell->");
+    }
+    if (!cmd->args_temp) {
+        printf("\n");
+        exit(EXIT_SUCCESS);
+    }
+    check_input(cmd);
 }
 
 void	check_input(t_minishell *cmd)
