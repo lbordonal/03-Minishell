@@ -31,7 +31,7 @@ void	check_input(t_minishell *cmd)
 {
 	char	**temporary;
 
-	temporary = ft_split(cmd->args_temp, '|');
+	temporary = ft_split_new(cmd->args_temp, '|');
 	cmd->tokens = init_tokens(temporary);
 	door(cmd->tokens, cmd->args_temp, cmd);
 }

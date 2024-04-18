@@ -54,14 +54,14 @@ static char	*word_dup(const char *str, int start, int finish)
 
 int	trigger_value(char c, char tmp, int trigger)
 {
-	if (c == '"' || c == '\'')
+	if (c == '\"' || c == '\'')
 	{
 		if (trigger == 0)
 		{
 			tmp = c;
 			trigger++;
 		}
-		else if (c == tmp)
+		else if (c == tmp || trigger == 1)
 			trigger = 0;
 	}
 	return (trigger);
@@ -69,17 +69,13 @@ int	trigger_value(char c, char tmp, int trigger)
 
 char	**send(char **split, char const*s, char c)
 {
-	size_t		i;
-	size_t		j;
-	int			index;
-	int			trigger;
-	static char	tmp;
+	static char	tmp = 0;
 
-	i = -1;
-	j = 0;
-	index = -1;
-	trigger = 0;
-	tmp = 0;
+	auto size_t i = -1;
+	auto size_t j = 0;
+	auto int index = -1;
+	auto int trigger = 0;
+
 	while (++i <= ft_strlen(s))
 	{
 		trigger = trigger_value(s[i], tmp, trigger);
@@ -92,7 +88,7 @@ char	**send(char **split, char const*s, char c)
 			index = -1;
 		}
 	}
-	split[j] = 0;
+	split[j] = NULL;
 	return (split);
 }
 
