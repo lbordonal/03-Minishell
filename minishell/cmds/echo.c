@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 11:04:34 by lbordona          #+#    #+#             */
-/*   Updated: 2024/04/15 13:40:24 by lbordona         ###   ########.fr       */
+/*   Updated: 2024/04/22 20:53:47 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,42 +14,51 @@
 
 void	echo_cmd(char **string)
 {
-	int	counter;
+	int	i;
 
-	counter = 0;
-	//verify_quote(string[counter]);
-	while (string[++counter])
+	if (verify_option_n(string[1]) == 1)
+		i = 1;
+	else
+		i = 0;
+	/* printf("%s", "i = ");
+	printf("%i\n", i); */
+	while (string[++i])
 	{
-		if (counter > 1)
+		//printf("%s\n", string[i]);
+		if (i > 2)
 			printf(" ");
-		if (test_str(string[counter]))
-			printf("%s", remove_quote(string[counter]));
+		if (test_str(string[i]))
+		{
+			printf("%s", remove_quote(string[i]));
+		}
 		else
 			printf("%s", "ERROR-> faltou fechar aspas nessa quote");
 	}
+	if (verify_option_n(string[1]) == 1)
+		printf("%s", "$");
 	printf("\n");
 }
 
-/* int	verify_quote(char *str)
+/* verifica se a string[1] = -n */
+int	verify_option_n(char *str)
 {
-	int	i;
-	int	quote;
+	int		i;
+	char	*temp;
 
 	i = 0;
-	quote = 2;
-	test_str(str);
-	while (str[i] != '\0')
-	{
-		if (str[i] == '"')
-			quote++;
+	temp = remove_quote(str);
+	if (temp[i++] != '-')
+		return (0);
+	while (temp[i] == 'n')
 		i++;
-	}
-	if (quote % 2 == 0)
-		return (1);
-	return (0);
-} */
+	if (temp[i])
+		return (0);
+	free(temp);
+	return (1);
+}
 
-char	*remove_quote(char *str) //arrumar essa funcao
+/* remove aspas */
+char	*remove_quote(char *str)
 {
 	int		i;
 	int		j;
@@ -64,15 +73,16 @@ char	*remove_quote(char *str) //arrumar essa funcao
 	{
 		if (str[i] != '"')
 		{
-            new_str[j] = str[i];
-            j++;
-        }
-        i++;
+			new_str[j] = str[i];
+			j++;
+		}
+		i++;
 	}
 	new_str[j] = '\0';
 	return (new_str);
 }
 
+/* testa se as aspas estao ok */
 int	test_str(char *str)
 {
 	auto int i = 0;
