@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 11:04:34 by lbordona          #+#    #+#             */
-/*   Updated: 2024/04/22 20:53:47 by lbordona         ###   ########.fr       */
+/*   Updated: 2024/04/22 20:55:15 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,8 @@ void	echo_cmd(char **string)
 		i = 1;
 	else
 		i = 0;
-	/* printf("%s", "i = ");
-	printf("%i\n", i); */
 	while (string[++i])
 	{
-		//printf("%s\n", string[i]);
 		if (i > 2)
 			printf(" ");
 		if (test_str(string[i]))
