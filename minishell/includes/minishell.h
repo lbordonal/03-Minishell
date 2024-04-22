@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 22:51:39 by lbordona          #+#    #+#             */
-/*   Updated: 2024/04/15 13:40:02 by lbordona         ###   ########.fr       */
+/*   Updated: 2024/04/22 13:32:30 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ typedef struct s_minishell
 	t_list	*env;
 	t_list	*export;
 	t_list	*tokens;
+	int		pipes;
 }	t_minishell;
 
 typedef struct s_tokens
@@ -62,20 +63,22 @@ void	check_input(t_minishell *cmd);
 void	print_prompt(t_minishell *cmd);
 void	epur_str(char *str);
 void	print_list_env(t_list *list);
-char	**ft_split_new(char const *s, char c);
 
 /* srcs: */
 void	echo_cmd(char **string);
 //int		verify_quote(char *str);
-char	*remove_quote(char *str);
-int		test_str(char *str);
 void	cd_cmd(char *string);
 void	pwd_cmd(t_minishell *cmd);
 void	exit_cmd(t_minishell *cmd);
-void	door(t_list *token, char *temp, t_minishell *cmd);
+void	door(char **args, t_minishell *cmd);
 void	init_fun(t_minishell	*cmd, char **sys_env);
+void	runner(t_minishell *cmd, t_list *token);
 
+int		test_str(char *str);
+
+char	**ft_split_new(char const *s, char c);
 char	*get_name(char *info);
+char	*remove_quote(char *str);
 
 /* lists> */
 t_list	*init_env(char **env);

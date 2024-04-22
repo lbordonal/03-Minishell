@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: goda-sil <goda-sil@student.42.fr>          +#+  +:+       +#+         #
+#    By: root <root@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/22 16:47:41 by lbordona          #+#    #+#              #
-#    Updated: 2024/04/09 20:15:56 by goda-sil         ###   ########.fr        #
+#    Updated: 2024/04/22 11:20:21 by root             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ LIBFT = ./libft/libft.a
 SRCS = srcs/minishell.c srcs/utils.c \
 	cmds/echo.c cmds/cd.c cmds/pwd.c \
 	aux/epur_str.c cmds/env.c cmds/export.c \
-	cmds/exit.c srcs/tokens.c aux/split_customized.c
+	cmds/exit.c srcs/tokens.c aux/split_customized.c srcs/executer.c
 
 OBJS = $(SRCS:%.c=%.o)
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 22:50:06 by lbordona          #+#    #+#             */
-/*   Updated: 2024/04/15 10:25:46 by lbordona         ###   ########.fr       */
+/*   Updated: 2024/04/22 13:14:17 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ void	check_input(t_minishell *cmd)
 
 	temporary = ft_split_new(cmd->args_temp, '|');
 	cmd->tokens = init_tokens(temporary);
-	door(cmd->tokens, cmd->args_temp, cmd);
+	cmd->pipes = ft_lstsize(cmd->tokens);
+	runner(cmd, cmd->tokens);
 }
 
 void	print_list_env(t_list *list)
