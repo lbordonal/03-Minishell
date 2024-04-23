@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 22:51:39 by lbordona          #+#    #+#             */
-/*   Updated: 2024/04/22 19:46:06 by lbordona         ###   ########.fr       */
+/*   Updated: 2024/04/23 12:14:02 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@
 typedef struct s_minishell
 {
 	char	*args_temp;
-	char	*path;
+	char	**path;
 	t_list	*env;
 	t_list	*export;
 	t_list	*tokens;
@@ -67,19 +67,26 @@ void	print_list_env(t_list *list);
 /* srcs: */
 void	echo_cmd(char **string);
 void	cd_cmd(char *string);
-void	pwd_cmd(t_minishell *cmd);
+void	pwd_cmd();
 void	exit_cmd(t_minishell *cmd);
 void	door(char **args, t_minishell *cmd);
 void	init_fun(t_minishell	*cmd, char **sys_env);
-void	runner(t_minishell *cmd, t_list *token);
+void	runner(t_minishell *cmd);
+void	runner_single_cmd(t_minishell *cmd, t_list *tokens);
+void	runner_mul_cmds(t_minishell *cmd, t_list *tokens);
+void	ft_execute(t_minishell *cmd, char **args);
+void	free_splited(char **array);
+char	**env_copy(t_list *lst);
 
 int		test_str(char *str);
+int		ft_is_builtin(char *args);
 
 int		verify_option_n(char *str);
 char	*option_n_ta_on(char *str);
 char	**ft_split_new(char const *s, char c);
 char	*get_name(char *info);
 char	*remove_quote(char *str);
+char	**separate_path(t_list *list);
 
 /* lists> */
 t_list	*init_env(char **env);

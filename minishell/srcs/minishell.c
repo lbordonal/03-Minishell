@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 19:45:51 by lbordona          #+#    #+#             */
-/*   Updated: 2024/04/22 13:31:00 by root             ###   ########.fr       */
+/*   Updated: 2024/04/23 12:14:30 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	door(char **args, t_minishell *cmd)
 	if (ft_strcmp(args[0], "echo") == 0)
 		echo_cmd(args);
 	else if (ft_strcmp(args[0], "pwd") == 0)
-		pwd_cmd(cmd);
+		pwd_cmd();
 	else if (ft_strcmp(args[0], "cd") == 0)
 		cd_cmd(args[1]);
 	else if (ft_strcmp(args[0], "env") == 0)
@@ -31,6 +31,7 @@ void	init_fun(t_minishell	*cmd, char **sys_env)
 	cmd->env = init_env(sys_env);
 	cmd->export = init_export(sys_env);
 	cmd->pipes = 0;
+	cmd->path = separate_path(cmd->env);
 }
 
 int	main(int ac, char **av, char **sys_env)

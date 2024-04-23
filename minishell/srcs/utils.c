@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 22:50:06 by lbordona          #+#    #+#             */
-/*   Updated: 2024/04/22 13:14:17 by root             ###   ########.fr       */
+/*   Updated: 2024/04/23 12:18:48 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	print_prompt(t_minishell *cmd)
 {
-	cmd->path = getcwd(0, 0);
 	cmd->args_temp = readline("Minishell → ");
 	while (cmd->args_temp && cmd->args_temp[0] == '\0') {
         free(cmd->args_temp);
@@ -34,7 +33,7 @@ void	check_input(t_minishell *cmd)
 	temporary = ft_split_new(cmd->args_temp, '|');
 	cmd->tokens = init_tokens(temporary);
 	cmd->pipes = ft_lstsize(cmd->tokens);
-	runner(cmd, cmd->tokens);
+	runner(cmd);
 }
 
 void	print_list_env(t_list *list)
@@ -47,4 +46,35 @@ void	print_list_env(t_list *list)
 		printf("%s\n", ((t_env *)(temporary->content))->info);
 		temporary = temporary->next;
 	}
+}
+
+int	ft_is_builtin(char *args)
+{
+	if (ft_strcmp(args, "echo") == 0)
+		return (1);
+	else if (ft_strcmp(args, "pwd") == 0)
+		return (1);
+	else if (ft_strcmp(args, "cd") == 0)
+		return (1);
+	else if (ft_strcmp(args, "env") == 0)
+		return (1);
+	else if (ft_strcmp(args, "exit") == 0)
+		return (1);
+	return (0);
+}
+
+char	**separate_path(t_list *list)
+{
+	auto t_list *args = list;
+	auto char	**split;
+	while(args)
+	{
+		if(!ft_strcmp(((t_env *)(args->content))->name, "PATH"))
+		{
+			split = ft_split(((t_env *)(args->content))->info, ':');
+			return (split);
+		}
+		args = args->next;
+	}
+	return (NULL);
 }

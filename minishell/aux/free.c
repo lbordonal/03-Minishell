@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pwd.c                                              :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/28 22:42:55 by lbordona          #+#    #+#             */
-/*   Updated: 2024/04/23 12:13:53 by root             ###   ########.fr       */
+/*   Created: 2024/04/23 11:26:44 by root              #+#    #+#             */
+/*   Updated: 2024/04/23 11:27:42 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
 
-/* getcwd -> On success, these functions return a
-pointer to a string containing the pathname of
-the current working directory */
-
-void	pwd_cmd()
+void	free_splited(char **array)
 {
-	printf("%s\n", getcwd(0, 0));
+	int	i;
+
+	i = 0;
+	while (array[i])
+	{
+		free(array[i]);
+		i++;
+	}
+	free(array);
 }
