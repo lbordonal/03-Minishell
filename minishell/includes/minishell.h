@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 22:51:39 by lbordona          #+#    #+#             */
-/*   Updated: 2024/04/23 12:14:02 by root             ###   ########.fr       */
+/*   Updated: 2024/04/25 09:36:30 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # include <fcntl.h>
 # include <limits.h>
 # include <sys/types.h> //opendir,readdir,closedir
+# include <sys/wait.h>
 # include <dirent.h> //opendir,readdir,closedir
 # include "../libft/libft.h"
 # include <readline/readline.h>
@@ -76,12 +77,13 @@ void	runner_single_cmd(t_minishell *cmd, t_list *tokens);
 void	runner_mul_cmds(t_minishell *cmd, t_list *tokens);
 void	ft_execute(t_minishell *cmd, char **args);
 void	free_splited(char **array);
-char	**env_copy(t_list *lst);
+void	ft_not_builtin(t_minishell *cmd, char **args);
 
 int		test_str(char *str);
 int		ft_is_builtin(char *args);
-
 int		verify_option_n(char *str);
+
+char	**env_copy(t_list *lst);
 char	*option_n_ta_on(char *str);
 char	**ft_split_new(char const *s, char c);
 char	*get_name(char *info);
