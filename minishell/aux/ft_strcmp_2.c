@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strcmp_2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/29 00:57:46 by lbordona          #+#    #+#             */
-/*   Updated: 2024/04/29 23:00:37 by lbordona         ###   ########.fr       */
+/*   Created: 2024/04/29 23:01:09 by lbordona          #+#    #+#             */
+/*   Updated: 2024/04/29 23:08:38 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/minishell.h"
 
-int	ft_strcmp(const char *str1, const char *str2)
+t_bool	ft_strcmp_2(const char *str1, const char *str2)
 {
-	while (*str1 && (*str1 == *str2))
-	{
-		str1++;
-		str2++;
-	}
-	return (*(unsigned char *)str1 - *(unsigned char *)str2);
+	return (ft_strncmp(str1, str2, ft_strlen(str2) + 1) == 0);
 }

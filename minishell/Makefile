@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: root <root@student.42.fr>                  +#+  +:+       +#+         #
+#    By: lbordona <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/22 16:47:41 by lbordona          #+#    #+#              #
-#    Updated: 2024/04/29 15:20:10 by root             ###   ########.fr        #
+#    Updated: 2024/04/29 23:08:51 by lbordona         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ SRCS = srcs/minishell.c srcs/utils.c \
 	cmds/echo.c cmds/cd.c cmds/pwd.c \
 	aux/epur_str.c cmds/env.c cmds/export.c \
 	cmds/exit.c srcs/tokens.c aux/split_customized.c srcs/executer.c \
-	aux/free.c srcs/utils_2.c
+	aux/free.c aux/ft_strcmp_2.c srcs/utils_2.c
 
 OBJS = $(SRCS:%.c=%.o)
 
@@ -49,7 +49,7 @@ $(NAME): $(OBJS) $(LIBFT)
 	echo " "
 	echo "$(GREEN)Minishell executable is ready!$(RESET)"
 	echo " "
-	
+
 
 clean:
 	@$(MAKE) clean -C ./libft
@@ -66,5 +66,11 @@ fclean: clean
 	echo " "
 
 re: fclean all
+
+top: re
+	echo " "
+	echo "$(YELLOW)Exquece, estourado!$(RESET)"
+	echo " "
+	./minishell
 
 .SILENT:

@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 11:04:34 by lbordona          #+#    #+#             */
-/*   Updated: 2024/04/22 20:55:15 by lbordona         ###   ########.fr       */
+/*   Updated: 2024/04/29 23:15:58 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,82 +15,49 @@
 /**
  * Comando echo.
  *
- * @param string Array de strings com tudo o que é passado depois do comando echo.
+ * @param string Array de strings com tudo o que é passado.
  */
-void	echo_cmd(char **string)
+int	echo_cmd(char **string)
 {
-	int	i;
+	t_bool	flag_n;
+	size_t	args;
+	size_t	i;
 
-	if (verify_option_n(string[1]) == 1)
-		i = 1;
-	else
-		i = 0;
-	while (string[++i])
+	i = 1;
+	flag_n = false;
+	if (*string == NULL)
+		return (printf("\n"));
+	args = ft_array_size(string);
+	if (ft_strcmp_2("-n\0", string[1]))
 	{
-		if (i > 2)
-			printf(" ");
-		if (test_str(string[i]))
-		{
-			printf("%s", remove_quote(string[i]));
-		}
-		else
-			printf("%s", "ERROR-> faltou fechar aspas nessa quote");
+		flag_n = true;
+		i++;
 	}
-	if (verify_option_n(string[1]) == 1)
-		printf("%s", "$");
-	else
+	printf("%s", string[i++]);
+	while (i < args)
+		printf(" %s", string[i++]);
+	if (!flag_n)
 		printf("\n");
+	return (0);
 }
 
 /**
- * Verifica se existe a opção "-n" no comando echo.
+ * Retorna o tamanho do array.
  *
- * @param str String a ser analisada.
+ * @param array Array de strings a ser medido.
+ * @return		Tamanho do array.
  */
-int	verify_option_n(char *str)
+size_t	ft_array_size(char *const *array)
 {
-	int		i;
-	char	*temp;
+	size_t	size;
 
-	i = 0;
-	temp = remove_quote(str);
-	if (temp[i++] != '-')
-		return (0);
-	while (temp[i] == 'n')
-		i++;
-	if (temp[i])
-		return (0);
-	free(temp);
-	return (1);
-}
-
-/**
- * Remove " e/ou ' da string a ser devolvida pelo comando echo.
- *
- * @param str String que terá " e/ou ' removido.
- */
-char	*remove_quote(char *str)
-{
-	int		i;
-	int		j;
-	char	*new_str;
-
-	i = 0;
-	j = 0;
-	new_str = malloc(sizeof(char) * (ft_strlen(str) + 1));
-	if (!new_str)
-		return (NULL);
-	while (str[i])
+	size = 0;
+	while (array && *array)
 	{
-		if (str[i] != '"')
-		{
-			new_str[j] = str[i];
-			j++;
-		}
-		i++;
+		size++;
+		array++;
 	}
-	new_str[j] = '\0';
-	return (new_str);
+	return (size);
 }
 
 /**
@@ -98,14 +65,14 @@ char	*remove_quote(char *str)
  *
  * @param str String a ser analisada.
  */
-int	test_str(char *str)
+/* int	test_str(char *str)
 {
 	auto int i = 0;
 	auto int flag = 0;
 	auto char c = 0;
 	while (str[i])
 	{
-		if (str[i] == '"' || str[i] == '\'')
+		if (str[i] == '"' || str[i] == 39)
 		{
 			flag = 1;
 			c = str[i];
@@ -117,4 +84,4 @@ int	test_str(char *str)
 	if (flag == 0)
 		return (1);
 	return (0);
-}
+} */

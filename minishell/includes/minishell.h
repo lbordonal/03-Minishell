@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 22:51:39 by lbordona          #+#    #+#             */
-/*   Updated: 2024/04/29 14:57:14 by root             ###   ########.fr       */
+/*   Updated: 2024/04/29 23:09:26 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,12 @@ typedef struct s_env
 	char	*info;
 }	t_env;
 
+typedef enum e_bool
+{
+	false,
+	true
+}	t_bool;
+
 /* Functions: */
 /* aux: */
 void	ft_putstr_fd(char *s, int fd);
@@ -66,9 +72,11 @@ void	epur_str(char *str);
 void	print_list_env(t_list *list);
 void	free_program(t_minishell *cmd);
 void	free_list(t_list *lst, void (*del)(void *));
+t_bool	ft_strcmp_2(const char *str1, const char *str2);
+
 
 /* srcs: */
-void	echo_cmd(char **string);
+int		echo_cmd(char **string);
 void	cd_cmd(char *string);
 void	pwd_cmd();
 void	exit_cmd(t_minishell *cmd);
@@ -83,15 +91,13 @@ void	ft_not_builtin(t_minishell *cmd, char **args);
 
 int		test_str(char *str);
 int		ft_is_builtin(char *args);
-int		verify_option_n(char *str);
 int		check_legit(t_list *tokens);
 
 char	**env_copy(t_list *lst);
-char	*option_n_ta_on(char *str);
 char	**ft_split_new(char const *s, char c);
 char	*get_name(char *info);
-char	*remove_quote(char *str);
 char	**separate_path(t_list *list);
+size_t	ft_array_size(char *const *array);
 
 /* lists> */
 t_list	*init_env(char **env);
