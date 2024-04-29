@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 22:51:39 by lbordona          #+#    #+#             */
-/*   Updated: 2024/04/25 09:36:30 by root             ###   ########.fr       */
+/*   Updated: 2024/04/29 11:58:54 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ void	ft_not_builtin(t_minishell *cmd, char **args);
 int		test_str(char *str);
 int		ft_is_builtin(char *args);
 int		verify_option_n(char *str);
+int		check_legit(t_list *tokens);
 
 char	**env_copy(t_list *lst);
 char	*option_n_ta_on(char *str);
