@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 22:51:39 by lbordona          #+#    #+#             */
-/*   Updated: 2024/04/29 23:09:26 by lbordona         ###   ########.fr       */
+/*   Updated: 2024/04/30 00:18:49 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,11 +74,10 @@ void	free_program(t_minishell *cmd);
 void	free_list(t_list *lst, void (*del)(void *));
 t_bool	ft_strcmp_2(const char *str1, const char *str2);
 
-
 /* srcs: */
 int		echo_cmd(char **string);
 void	cd_cmd(char *string);
-void	pwd_cmd();
+void	pwd_cmd(void);
 void	exit_cmd(t_minishell *cmd);
 void	door(char **args, t_minishell *cmd);
 void	init_fun(t_minishell	*cmd, char **sys_env);
@@ -89,7 +88,7 @@ void	ft_execute(t_minishell *cmd, char **args);
 void	free_splited(char **array);
 void	ft_not_builtin(t_minishell *cmd, char **args);
 
-int		test_str(char *str);
+int		check_quotes(const char *str);
 int		ft_is_builtin(char *args);
 int		check_legit(t_list *tokens);
 

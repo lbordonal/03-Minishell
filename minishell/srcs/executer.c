@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   executer.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 23:11:52 by root              #+#    #+#             */
-/*   Updated: 2024/04/29 14:26:47 by root             ###   ########.fr       */
+/*   Updated: 2024/04/30 00:24:17 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	runner(t_minishell *cmd)
 	{
 		if (cmd->pipes == 1)
 			runner_single_cmd(cmd, cmd->tokens);
-		else if(cmd->pipes > 1)
+		else if (cmd->pipes > 1)
 			runner_mul_cmds(cmd, cmd->tokens);
 	}
 	else
@@ -28,7 +28,7 @@ void	runner(t_minishell *cmd)
 
 void	runner_single_cmd(t_minishell *cmd, t_list *tokens)
 {
-	t_list *args = tokens;
+	auto t_list *args = tokens; //pode mudar isso? -> t_list *args; / args = tokens; ??
 	if (ft_is_builtin(((t_token *)(args->content))->args[0]))
 		door(((t_token *)(args->content))->args, cmd);
 	else
@@ -38,8 +38,8 @@ void	runner_single_cmd(t_minishell *cmd, t_list *tokens)
 
 void	runner_mul_cmds(t_minishell *cmd, t_list *tokens)
 {
-	auto t_list *args = tokens;
-	while(args)
+	auto t_list *args = tokens; //pode mudar isso? -> t_list *args; / args = tokens; ??
+	while (args)
 	{
 		if (ft_is_builtin(((t_token *)(args->content))->args[0]))
 			door(((t_token *)(args->content))->args, cmd);
@@ -51,7 +51,7 @@ void	runner_mul_cmds(t_minishell *cmd, t_list *tokens)
 
 void	ft_not_builtin(t_minishell *cmd, char **args)
 {
-	int pid = fork();
+	auto int pid = fork();
 	if (pid == 0)
 		ft_execute(cmd, args);
 	else

@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 11:04:34 by lbordona          #+#    #+#             */
-/*   Updated: 2024/04/29 23:15:58 by lbordona         ###   ########.fr       */
+/*   Updated: 2024/04/30 00:14:57 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,26 @@
  *
  * @param string Array de strings com tudo o que é passado.
  */
-int	echo_cmd(char **string)
+int	echo_cmd(char **string) //reduzir função
 {
-	t_bool	flag_n;
-	size_t	args;
-	size_t	i;
-
-	i = 1;
-	flag_n = false;
+	auto size_t i = 1;
+	auto size_t j = 0;
+	auto size_t args = ft_array_size(string);
+	auto t_bool flag_n = false;
 	if (*string == NULL)
-		return (printf("\n"));
-	args = ft_array_size(string);
+	{
+		printf("\n");
+		return (0);
+	}
+	while (j < args)
+	{
+		if (!check_quotes(string[j]))
+		{
+			printf("\n\n%s\n\n", "APRENDE A USAR ASPAS BOI!!!!!!");
+			return (1);
+		}
+		j++;
+	}
 	if (ft_strcmp_2("-n\0", string[1]))
 	{
 		flag_n = true;
@@ -61,27 +70,40 @@ size_t	ft_array_size(char *const *array)
 }
 
 /**
- * Verifica se " e/ou ' estão completos para a string funcionar corretamente.
+ * Verifica se as aspas (' e/ou ") estão corretas
  *
  * @param str String a ser analisada.
- */
-/* int	test_str(char *str)
+ * @return 1 se as aspas estão corretas, 0 caso contrário.
+*/
+int	check_quotes(const char *str) //reduzir função
 {
 	auto int i = 0;
-	auto int flag = 0;
-	auto char c = 0;
-	while (str[i])
+	auto int in_quotes = 0;
+	auto char expected_quote = '\0';
+	while (str[i] != '\0')
 	{
-		if (str[i] == '"' || str[i] == 39)
+		if (str[i] == '\'' || str[i] == '"')
 		{
-			flag = 1;
-			c = str[i];
+			if (!in_quotes)
+			{
+				in_quotes = 1;
+				expected_quote = str[i];
+			}
+			else
+			{
+				if (str[i] == expected_quote)
+				{
+					in_quotes = 0;
+					expected_quote = '\0';
+				}
+			}
 		}
-		if (str[i] == c && flag == 1)
-			flag--;
+		else if (str[i] == '\\' && in_quotes)
+			i++;
 		i++;
 	}
-	if (flag == 0)
+	if (in_quotes == 0 && expected_quote == '\0')
 		return (1);
-	return (0);
-} */
+	else
+		return (0);
+}

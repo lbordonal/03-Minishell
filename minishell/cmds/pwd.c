@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pwd.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 22:42:55 by lbordona          #+#    #+#             */
-/*   Updated: 2024/04/23 12:13:53 by root             ###   ########.fr       */
+/*   Updated: 2024/04/30 00:15:47 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 pointer to a string containing the pathname of
 the current working directory */
 
-void	pwd_cmd()
+void	pwd_cmd(void)
 {
 	printf("%s\n", getcwd(0, 0));
 }

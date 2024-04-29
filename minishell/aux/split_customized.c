@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   split_customized.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: goda-sil <goda-sil@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 19:24:53 by goda-sil          #+#    #+#             */
-/*   Updated: 2024/04/09 23:00:58 by goda-sil         ###   ########.fr       */
+/*   Updated: 2024/04/30 00:19:05 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,6 @@ char	**send(char **split, char const*s, char c)
 	auto size_t j = 0;
 	auto int index = -1;
 	auto int trigger = 0;
-
 	while (++i <= ft_strlen(s))
 	{
 		trigger = trigger_value(s[i], tmp, trigger);
