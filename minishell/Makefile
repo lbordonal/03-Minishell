@@ -6,7 +6,7 @@
 #    By: root <root@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/22 16:47:41 by lbordona          #+#    #+#              #
-#    Updated: 2024/04/29 11:10:33 by root             ###   ########.fr        #
+#    Updated: 2024/04/29 15:20:10 by root             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ PURPLE 	= \033[1;35m
 CYAN 	= \033[1;36m
 WHITE 	= \033[1;37m
 
-CC = cc -g
+CC = cc
 CFLAGS = -Wall -Wextra -Werror -pthread -fsanitize=address
 RM = rm -rf
 EXTRA = -lreadline
