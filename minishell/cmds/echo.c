@@ -12,6 +12,11 @@
 
 #include "../includes/minishell.h"
 
+/**
+ * Comando echo.
+ *
+ * @param string Array de strings com tudo o que é passado depois do comando echo.
+ */
 void	echo_cmd(char **string)
 {
 	int	i;
@@ -33,10 +38,15 @@ void	echo_cmd(char **string)
 	}
 	if (verify_option_n(string[1]) == 1)
 		printf("%s", "$");
-	printf("\n");
+	else
+		printf("\n");
 }
 
-/* verifica se a string[1] = -n */
+/**
+ * Verifica se existe a opção "-n" no comando echo.
+ *
+ * @param str String a ser analisada.
+ */
 int	verify_option_n(char *str)
 {
 	int		i;
@@ -54,7 +64,11 @@ int	verify_option_n(char *str)
 	return (1);
 }
 
-/* remove aspas */
+/**
+ * Remove " e/ou ' da string a ser devolvida pelo comando echo.
+ *
+ * @param str String que terá " e/ou ' removido.
+ */
 char	*remove_quote(char *str)
 {
 	int		i;
@@ -79,7 +93,11 @@ char	*remove_quote(char *str)
 	return (new_str);
 }
 
-/* testa se as aspas estao ok */
+/**
+ * Verifica se " e/ou ' estão completos para a string funcionar corretamente.
+ *
+ * @param str String a ser analisada.
+ */
 int	test_str(char *str)
 {
 	auto int i = 0;
