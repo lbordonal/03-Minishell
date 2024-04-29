@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 23:11:52 by root              #+#    #+#             */
-/*   Updated: 2024/04/29 12:00:35 by root             ###   ########.fr       */
+/*   Updated: 2024/04/29 14:26:47 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ void	runner(t_minishell *cmd)
 		else if(cmd->pipes > 1)
 			runner_mul_cmds(cmd, cmd->tokens);
 	}
+	else
+		free_program(cmd);
 }
 
 void	runner_single_cmd(t_minishell *cmd, t_list *tokens)

@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 22:51:39 by lbordona          #+#    #+#             */
-/*   Updated: 2024/04/29 11:58:54 by root             ###   ########.fr       */
+/*   Updated: 2024/04/29 14:57:14 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,8 @@ void	check_input(t_minishell *cmd);
 void	print_prompt(t_minishell *cmd);
 void	epur_str(char *str);
 void	print_list_env(t_list *list);
+void	free_program(t_minishell *cmd);
+void	free_list(t_list *lst, void (*del)(void *));
 
 /* srcs: */
 void	echo_cmd(char **string);
