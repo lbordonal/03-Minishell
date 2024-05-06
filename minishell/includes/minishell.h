@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 22:51:39 by lbordona          #+#    #+#             */
-/*   Updated: 2024/04/30 00:18:49 by lbordona         ###   ########.fr       */
+/*   Updated: 2024/05/06 09:23:31 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,7 @@ void	free_splited(char **array);
 void	ft_not_builtin(t_minishell *cmd, char **args);
 
 int		check_quotes(const char *str);
+int		check_quotes_cont(int in_quotes, char expected_quote);
 int		ft_is_builtin(char *args);
 int		check_legit(t_list *tokens);
 

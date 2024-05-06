@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 11:04:34 by lbordona          #+#    #+#             */
-/*   Updated: 2024/04/30 00:14:57 by lbordona         ###   ########.fr       */
+/*   Updated: 2024/05/06 09:26:25 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,11 @@ int	echo_cmd(char **string) //reduzir função
 	auto size_t args = ft_array_size(string);
 	auto t_bool flag_n = false;
 	if (*string == NULL)
-	{
-		printf("\n");
 		return (0);
-	}
 	while (j < args)
 	{
 		if (!check_quotes(string[j]))
-		{
-			printf("\n\n%s\n\n", "APRENDE A USAR ASPAS BOI!!!!!!");
 			return (1);
-		}
 		j++;
 	}
 	if (ft_strcmp_2("-n\0", string[1]))
@@ -102,6 +96,11 @@ int	check_quotes(const char *str) //reduzir função
 			i++;
 		i++;
 	}
+	return (check_quotes_cont(in_quotes, expected_quote));
+}
+
+int	check_quotes_cont(int in_quotes, char expected_quote)
+{
 	if (in_quotes == 0 && expected_quote == '\0')
 		return (1);
 	else
