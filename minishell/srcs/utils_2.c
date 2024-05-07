@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_2.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 11:49:25 by root              #+#    #+#             */
-/*   Updated: 2024/04/30 00:26:18 by lbordona         ###   ########.fr       */
+/*   Updated: 2024/05/07 02:39:07 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 
 int	check_legit2(char **string)
 {
-	auto int counter = -1;
-	auto int counter_2;
+	int counter;
+	int counter_2;
+
+	counter = -1;
 	while (string[++counter])
 	{
 		counter_2 = -1;
@@ -31,7 +33,9 @@ int	check_legit2(char **string)
 
 int	check_legit(t_list *tokens)
 {
-	auto t_list *args = tokens; //pode mudar isso? -> t_list *args; / args = tokens; ??
+	t_list *args; //pode mudar isso? -> t_list *args; / args = tokens; ??
+
+	args = tokens;
 	while (args)
 	{
 		if (check_legit2(((t_token *)(args->content))->args) == 1)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   echo.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 11:04:34 by lbordona          #+#    #+#             */
-/*   Updated: 2024/05/06 09:26:25 by lbordona         ###   ########.fr       */
+/*   Updated: 2024/05/07 02:37:22 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,15 @@
  */
 int	echo_cmd(char **string) //reduzir função
 {
-	auto size_t i = 1;
-	auto size_t j = 0;
-	auto size_t args = ft_array_size(string);
-	auto t_bool flag_n = false;
+	size_t	i;
+	size_t	j;
+	size_t	args;
+	t_bool	flag_n;
+
+	i = 1;
+	j = 0;
+	args = ft_array_size(string);
+	flag_n = false<
 	if (*string == NULL)
 		return (0);
 	while (j < args)
@@ -71,9 +76,13 @@ size_t	ft_array_size(char *const *array)
 */
 int	check_quotes(const char *str) //reduzir função
 {
-	auto int i = 0;
-	auto int in_quotes = 0;
-	auto char expected_quote = '\0';
+	int		i;
+	int		in_quotes;
+	char	expected_quote;
+
+	i = 0;
+	in_quotes = 0;
+	expected_quote = '\0';
 	while (str[i] != '\0')
 	{
 		if (str[i] == '\'' || str[i] == '"')

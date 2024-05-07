@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 22:50:06 by lbordona          #+#    #+#             */
-/*   Updated: 2024/04/30 00:28:07 by lbordona         ###   ########.fr       */
+/*   Updated: 2024/05/07 02:39:22 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,10 @@ int	ft_is_builtin(char *args)
 
 char	**separate_path(t_list *list)
 {
-	auto t_list *args = list; //pode mudar isso? -> t_list *args; / args = list; ??
-	auto char **split;
+	t_list *args; //pode mudar isso? -> t_list *args; / args = list; ??
+	char **split;
+
+	args = list;
 	while (args)
 	{
 		if (!ft_strcmp(((t_env *)(args->content))->name, "PATH"))
