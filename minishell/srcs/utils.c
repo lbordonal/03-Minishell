@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 22:50:06 by lbordona          #+#    #+#             */
-/*   Updated: 2024/05/07 02:39:22 by root             ###   ########.fr       */
+/*   Updated: 2024/05/07 03:24:27 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,9 @@
 void	print_prompt(t_minishell *cmd)
 {
 	cmd->args_temp = readline("Minishell → ");
+	add_history(cmd->args_temp);
 	while (cmd->args_temp && cmd->args_temp[0] == '\0')
-	{
 		free(cmd->args_temp);
-		cmd->args_temp = readline("Minishell → ");
-	}
 	if (!cmd->args_temp)
 	{
 		printf("\n");
@@ -67,7 +65,7 @@ int	ft_is_builtin(char *args)
 
 char	**separate_path(t_list *list)
 {
-	t_list *args; //pode mudar isso? -> t_list *args; / args = list; ??
+	t_list *args;
 	char **split;
 
 	args = list;

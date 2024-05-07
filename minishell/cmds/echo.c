@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 11:04:34 by lbordona          #+#    #+#             */
-/*   Updated: 2024/05/07 02:37:22 by root             ###   ########.fr       */
+/*   Updated: 2024/05/07 03:19:18 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	echo_cmd(char **string) //reduzir função
 	i = 1;
 	j = 0;
 	args = ft_array_size(string);
-	flag_n = false<
+	flag_n = false;
 	if (*string == NULL)
 		return (0);
 	while (j < args)

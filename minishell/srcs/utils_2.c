@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 11:49:25 by root              #+#    #+#             */
-/*   Updated: 2024/05/07 02:39:07 by root             ###   ########.fr       */
+/*   Updated: 2024/05/07 03:11:52 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	check_legit2(char **string)
 
 int	check_legit(t_list *tokens)
 {
-	t_list *args; //pode mudar isso? -> t_list *args; / args = tokens; ??
+	t_list *args;
 
 	args = tokens;
 	while (args)
