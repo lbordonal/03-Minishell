@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   executer.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 23:11:52 by root              #+#    #+#             */
-/*   Updated: 2024/04/30 00:24:17 by lbordona         ###   ########.fr       */
+/*   Updated: 2024/05/07 03:36:22 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 void	runner(t_minishell *cmd)
 {
-	add_history(cmd->args_temp);
+	// int	fdin;
+	// int fdout;
 	if (check_legit(cmd->tokens) == 1)
 	{
 		if (cmd->pipes == 1)
@@ -28,7 +29,9 @@ void	runner(t_minishell *cmd)
 
 void	runner_single_cmd(t_minishell *cmd, t_list *tokens)
 {
-	auto t_list *args = tokens; //pode mudar isso? -> t_list *args; / args = tokens; ??
+	t_list *args;
+
+	args = tokens;
 	if (ft_is_builtin(((t_token *)(args->content))->args[0]))
 		door(((t_token *)(args->content))->args, cmd);
 	else
@@ -38,7 +41,9 @@ void	runner_single_cmd(t_minishell *cmd, t_list *tokens)
 
 void	runner_mul_cmds(t_minishell *cmd, t_list *tokens)
 {
-	auto t_list *args = tokens; //pode mudar isso? -> t_list *args; / args = tokens; ??
+	t_list *args;
+
+	args = tokens;
 	while (args)
 	{
 		if (ft_is_builtin(((t_token *)(args->content))->args[0]))
@@ -51,12 +56,16 @@ void	runner_mul_cmds(t_minishell *cmd, t_list *tokens)
 
 void	ft_not_builtin(t_minishell *cmd, char **args)
 {
-	auto int pid = fork();
-	if (pid == 0)
+	// int	pid;
+
+	// pid = fork();
+	// if (pid == 0)
 		ft_execute(cmd, args);
-	else
-		waitpid(pid, NULL, WNOHANG);
+	// else
+	// 	waitpid(pid, NULL, WNOHANG);
 }
+
+// fazer access ate ao final do dia
 
 void	ft_execute(t_minishell *cmd, char **args)
 {
