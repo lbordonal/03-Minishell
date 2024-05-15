@@ -42,6 +42,8 @@ typedef struct s_minishell
 	t_list	*export;
 	t_list	*tokens;
 	int		pipes;
+	int		stdout;
+	int		stdin;
 }	t_minishell;
 
 typedef struct s_tokens
@@ -87,6 +89,7 @@ void	runner_mul_cmds(t_minishell *cmd, t_list *tokens);
 void	ft_execute(t_minishell *cmd, char **args);
 void	free_splited(char **array);
 void	ft_not_builtin(t_minishell *cmd, char **args);
+void	configure(t_minishell *cmd, int *fdin);
 
 int		check_quotes(const char *str);
 int		check_quotes_cont(int in_quotes, char expected_quote);

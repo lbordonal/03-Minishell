@@ -6,8 +6,13 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 03:16:46 by root              #+#    #+#             */
-/*   Updated: 2024/05/07 03:17:09 by root             ###   ########.fr       */
+/*   Updated: 2024/05/07 03:38:42 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
+
+void	configure(t_minishell *cmd, int *fdin)
+{
+	
+}

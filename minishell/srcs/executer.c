@@ -15,7 +15,10 @@
 void	runner(t_minishell *cmd)
 {
 	// int	fdin;
-	// int fdout;
+	// int	fdout;
+	// int	pipefd[2];
+
+	configure(cmd, &fdin);
 	if (check_legit(cmd->tokens) == 1)
 	{
 		if (cmd->pipes == 1)
@@ -56,13 +59,13 @@ void	runner_mul_cmds(t_minishell *cmd, t_list *tokens)
 
 void	ft_not_builtin(t_minishell *cmd, char **args)
 {
-	// int	pid;
+	int	pid;
 
-	// pid = fork();
-	// if (pid == 0)
+	pid = fork();
+	if (pid == 0)
 		ft_execute(cmd, args);
-	// else
-	// 	waitpid(pid, NULL, WNOHANG);
+	else
+		waitpid(pid, NULL, WNOHANG);
 }
 
 // fazer access ate ao final do dia
