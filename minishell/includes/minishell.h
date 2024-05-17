@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 22:51:39 by lbordona          #+#    #+#             */
-/*   Updated: 2024/05/06 09:23:31 by lbordona         ###   ########.fr       */
+/*   Updated: 2024/05/17 05:18:31 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,16 @@ typedef struct s_minishell
 	t_list	*export;
 	t_list	*tokens;
 	int		pipes;
+	int		stdout;
+	int		stdin;
+	int		stdintmp;
+	int		stdouttmp;
 }	t_minishell;
 
 typedef struct s_tokens
 {
 	char	**args;
+	char	**comand_args;
 }	t_token;
 
 typedef struct s_env
@@ -87,11 +92,16 @@ void	runner_mul_cmds(t_minishell *cmd, t_list *tokens);
 void	ft_execute(t_minishell *cmd, char **args);
 void	free_splited(char **array);
 void	ft_not_builtin(t_minishell *cmd, char **args);
+void	configure_fd(t_minishell *cmd);
+void	change_fd(t_minishell *cmd, t_list *tokens);
+void	appendredirection(t_minishell *cmd);
 
 int		check_quotes(const char *str);
 int		check_quotes_cont(int in_quotes, char expected_quote);
 int		ft_is_builtin(char *args);
 int		check_legit(t_list *tokens);
+int		search_lst(t_minishell *cmd, t_list *token);
+int		ft_checkspecial(char **str);
 
 char	**env_copy(t_list *lst);
 char	**ft_split_new(char const *s, char c);
