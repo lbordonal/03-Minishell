@@ -6,7 +6,7 @@
 #    By: root <root@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/22 16:47:41 by lbordona          #+#    #+#              #
-#    Updated: 2024/05/15 03:54:47 by root             ###   ########.fr        #
+#    Updated: 2024/05/17 05:22:10 by root             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ SRCS = srcs/minishell.c srcs/utils.c \
 	aux/epur_str.c cmds/env.c cmds/export.c \
 	cmds/exit.c srcs/tokens.c aux/split_customized.c srcs/executer.c \
 	aux/free.c aux/ft_strcmp_2.c srcs/utils_2.c srcs/executer_2.c \
-	aux/search_lst.c
+	aux/search_lst.c srcs/handler.c
 
 OBJS = $(SRCS:%.c=%.o)
 

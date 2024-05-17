@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 23:11:52 by root              #+#    #+#             */
-/*   Updated: 2024/05/07 03:36:22 by root             ###   ########.fr       */
+/*   Updated: 2024/05/17 05:15:52 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,6 @@
 
 void	runner(t_minishell *cmd)
 {
-	// int	fdin;
-	// int	fdout;
-	// int	pipefd[2];
-
-	configure(cmd, &fdin);
 	if (check_legit(cmd->tokens) == 1)
 	{
 		if (cmd->pipes == 1)
@@ -35,6 +30,7 @@ void	runner_single_cmd(t_minishell *cmd, t_list *tokens)
 	t_list *args;
 
 	args = tokens;
+	// configure_fd(cmd);
 	if (ft_is_builtin(((t_token *)(args->content))->args[0]))
 		door(((t_token *)(args->content))->args, cmd);
 	else
